@@ -233,6 +233,12 @@ class Errbit_Notice {
 					$env->tag('environment-name', $options['environment_name']);
 					$env->tag('hostname',         $options['hostname']);
 				});
+
+				if (!empty($options['user_attributes'])) {
+					$notice->tag('user-attributes', function($userAttributes) use ($options) {
+						Errbit_Notice::xmlVarsFor($userAttributes, $options['user_attributes']);
+					});
+				});
 			}
 		)->asXml();
 	}
