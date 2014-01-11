@@ -232,6 +232,7 @@ class Errbit_Notice {
 					$env->tag('project-root',     $options['project_root']);
 					$env->tag('environment-name', $options['environment_name']);
 					$env->tag('hostname',         $options['hostname']);
+					$env->tag('app-version',      !empty($options['app_version']) ? $options['app_version'] : '');
 				});
 			}
 		)->asXml();
