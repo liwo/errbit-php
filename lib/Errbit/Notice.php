@@ -234,6 +234,12 @@ class Errbit_Notice {
 					$env->tag('hostname',         $options['hostname']);
 					$env->tag('app-version',      !empty($options['app_version']) ? $options['app_version'] : '');
 				});
+
+				if (!empty($options['user_attributes'])) {
+					$notice->tag('user-attributes', function($userAttributes) use ($options) {
+						Errbit_Notice::xmlVarsFor($userAttributes, $options['user_attributes']);
+					});
+				});
 			}
 		)->asXml();
 	}
