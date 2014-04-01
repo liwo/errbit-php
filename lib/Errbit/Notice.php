@@ -239,7 +239,7 @@ class Errbit_Notice {
 					$notice->tag('user-attributes', function($userAttributes) use ($options) {
 						Errbit_Notice::xmlVarsFor($userAttributes, $options['user_attributes']);
 					});
-				});
+				}
 			}
 		)->asXml();
 	}
